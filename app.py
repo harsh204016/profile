@@ -22,8 +22,10 @@ with st.form(key='my_form'):
 if submit_button:
     if not os.path.exists(f'{username}'):
         os.system(f'instagram-scraper "{username}" --profile-metadata  --media-metadata  --media-types none')
+        print("file downloaded)
     try:
         js = json.load(open(f'{username}/{username}.json', encoding='utf-8'))
+        print("file loaded)
         df=pd.DataFrame(js['GraphImages'])
         prof_pic=js['GraphProfileInfo']['info']['profile_pic_url']
         response = requests.get(prof_pic)
