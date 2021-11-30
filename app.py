@@ -21,7 +21,7 @@ with st.form(key='my_form'):
       
 if submit_button:
     if not os.path.exists(f'{username}'):
-        os.system(f'instagram-scraper "{username}" --profile-metadata  --media-metadata  --media-types none')
+        os.system(f'python -m instagram-scraper "{username}" --profile-metadata  --media-metadata  --media-types none')
         print("file downloaded")
     try:
         js = json.load(open(f'{username}/{username}.json', encoding='utf-8'))
